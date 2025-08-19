@@ -1,0 +1,12 @@
+CHIP Mux {
+//Codigo Not(x OR y)
+    IN x, y;
+    OUT f;
+
+    PARTS:
+
+    Or(a=x,b=y,out=xy);
+    Not(in=xy, out=f);
+    
+ 
+}
