@@ -1,0 +1,14 @@
+CHIP Mux {
+//Codigo Not(X)AND NOT(Y)
+    IN x, y;
+    OUT f;
+
+    PARTS:
+
+    Not(in=x, out=notx);
+    Not(in=y, out=noty);
+    And(a=notx, b=noty , out=f);
+
+    
+ 
+}
