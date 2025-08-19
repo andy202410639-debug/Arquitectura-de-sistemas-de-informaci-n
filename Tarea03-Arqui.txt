@@ -1,0 +1,24 @@
+CHIP Mux {
+//Codigos
+    IN x, y, z;
+    OUT f1, f2;
+
+    PARTS:
+
+    Not(in=x, out=notx);
+    Not(in=y, out=noty);
+    Not(in=z, out=notz);
+
+    //Primera ecuacion NOT(x) OR ( (x AND NOT(y)) AND NOT(z) )
+    And(a=x, b=noty, out=xnoty);
+    Or(a=notx, b=xnoty, out=notxOxnoty); 
+    And(a=notz, b=notxOxnoty, out=f1);
+
+    //Segunda ecuacion (x AND y) OR ( AND NOT(z)) OR (NOT(x) NOT(y) AND z)
+    And(a=notx, b=noty, out=notxnoty);
+    And(a=z, b=notxnoty, out=notxnotyz);
+    And(a=y, b=xOnotz, out=yOxnotz);
+    Or(a=x, b=notz, out=xOnotz);
+    Or(a=yOxnotz, b=notxnotyz, out=f2);
+ 
+}
