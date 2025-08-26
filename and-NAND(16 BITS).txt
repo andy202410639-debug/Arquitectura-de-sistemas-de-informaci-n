@@ -1,0 +1,10 @@
+CHIP And16 {
+//AND -NAND (16 btis)
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    
+    Nand16(a=a, b=b, out=h);
+    Nand16(a=h, b=h, out=out);
+}
