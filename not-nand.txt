@@ -1,0 +1,9 @@
+CHIP Mux {
+//not con nand 
+    IN a;
+    OUT out;
+
+    PARTS:
+    // not (a) = nand(a &a)
+    Nand(a=a, b=a, out=out);
+}
