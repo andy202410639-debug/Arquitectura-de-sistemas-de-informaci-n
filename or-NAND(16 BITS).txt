@@ -1,0 +1,13 @@
+
+CHIP Or16 {
+//OR-NAND (16bits)
+//LEYES DE MORGAN 
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+
+    Nand16(a=a, b=a, out=Nota);
+    Nand16(a=b, b=b, out=Notb);
+    Nand16(a=Nota, b=Notb, out=out);
+}
