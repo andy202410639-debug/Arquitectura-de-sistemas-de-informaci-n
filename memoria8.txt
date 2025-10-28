@@ -1,0 +1,16 @@
+
+//codigp de memoria ram de 8k
+CHIP RAM8 {
+
+    IN in[16], load, address[13];
+    OUT out[16];
+
+    PARTS:
+
+    DMux(in=load, sel=address[12], a=loadA, b=loadB);
+
+    RAM4K(in=in, load=loadA, address=address[0..11], out=outA);
+    RAM4K(in=in, load=loadB, address=address[0..11], out=outB);
+
+    Mux16(a=outA, b=outB, sel=address[12], out=out);
+}
